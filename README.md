@@ -4,4 +4,4 @@
     - employee
     - staff
     - manager
-    - testemployee
+    - testEmployee
