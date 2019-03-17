@@ -11,8 +11,8 @@ package com.part2.listtest;
  */
 
 public class User {
-    String name;    //姓名
-    String email;   //电子邮件
+    private String name;    //姓名
+    private String email;   //电子邮件
 
     /**
      * 构造函数
@@ -22,4 +22,23 @@ public class User {
         this.email = email;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String toString(){
+        return "[name: " + getName() + ", email: " + getEmail() + "]";
+    }
 }
