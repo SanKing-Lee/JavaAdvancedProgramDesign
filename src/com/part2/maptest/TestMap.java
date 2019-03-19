@@ -92,7 +92,7 @@ public class TestMap {
         });
     }
 
-    public void tesetRemove(){
+    public void testRemove(){
         Scanner in = new Scanner(System.in);
         while(true){
             System.out.println("请输入需要删除的学生的学号: ");
@@ -162,6 +162,7 @@ public class TestMap {
         tM.testForEach();
         tM.testModify();
         tM.testMerge();
+        tM.testRemove();
         tM.testForEach();
     }
 }
