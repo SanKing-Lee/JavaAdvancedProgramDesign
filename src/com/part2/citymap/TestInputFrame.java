@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 
 public class TestInputFrame {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ArrayList<String> provinces = CityMapDao.getProvinces();
-        ArrayList<String> cities = CityMapDao.getCitiesByProvince("四川省");
+        ArrayList<String> cities = CityMapDao.getCitiesByProvince("四川");
         System.out.println(provinces.toString());
         System.out.println(cities.toString());
     }

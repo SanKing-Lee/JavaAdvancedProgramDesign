@@ -1,7 +1,6 @@
 package com.part2.citymap;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -15,14 +14,25 @@ import java.util.Set;
  */
 
 public class CityMapDao extends CityMap {
-    public static ArrayList<String> getCitiesByProvince(String sProvince){
+    /**
+     * 根据给定的省的名称获取对应的所有城市名称
+     *
+     * @param sProvince 给定的省名
+     * @return 省名对应的所有城市列表
+     */
+    public static ArrayList<String> getCitiesByProvince(String sProvince) {
         return CitiesMap.get(sProvince);
     }
 
-    public static ArrayList<String> getProvinces(){
+    /**
+     * 获取所有的省
+     *
+     * @return 所有的省名列表
+     */
+    public static ArrayList<String> getProvinces() {
         ArrayList<String> alProvinces = new ArrayList<>();
         Set<String> ssProvinces = CitiesMap.keySet();
-        for(String province : ssProvinces){
+        for (String province : ssProvinces) {
             alProvinces.add(province);
         }
         return alProvinces;
