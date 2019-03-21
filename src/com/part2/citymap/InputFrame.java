@@ -47,6 +47,7 @@ public class InputFrame extends JFrame {
      * 检测是否选择了籍贯
      */
     private boolean isChoosedNative = false;
+
     /**
      * 构造函数
      *
@@ -92,22 +93,22 @@ public class InputFrame extends JFrame {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(nameJTextField.getText().equals("") || nameJTextField.getText().charAt(0) == ' '){
+                if (nameJTextField.getText().equals("") || nameJTextField.getText().charAt(0) == ' ') {
                     showMessageDialog(null, "姓名有误，请重新输入！");
                     return;
                 }
-                if(!isChoosedNative){
+                if (!isChoosedNative) {
                     showMessageDialog(null, "请选择籍贯！");
                     return;
                 }
-                if(addressJTextField.getText().equals("")||addressJTextField.getText().charAt(0)== ' '){
+                if (addressJTextField.getText().equals("") || addressJTextField.getText().charAt(0) == ' ') {
                     showMessageDialog(null, "通信地址有误，请重新输入！");
                     return;
                 }
                 if (!ValidateEmail.isEmail(emailJTextField.getText())) {
                     showMessageDialog(null, "邮箱地址有误，请重新输入！");
                     return;
-            }
+                }
                 String string = "";
                 string += "\n" + "姓名：" + nameJTextField.getText() + "\n性别：" + genderJComboBox.getSelectedItem();
                 string += "\n" + "籍贯：" + provinceJComboBox.getSelectedItem() +

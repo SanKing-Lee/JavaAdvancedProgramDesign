@@ -1,8 +1,5 @@
-package com.part1.employee.testemployee;
+package com.part1.employee;
 
-
-import com.part1.employee.manager.Manager;
-import com.part1.employee.staff.Staff;
 
 import java.util.logging.Logger;
 

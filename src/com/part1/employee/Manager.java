@@ -1,7 +1,7 @@
-package com.part1.employee.manager;
+package com.part1.employee;
 
 
-import com.part1.employee.employee.Employee;
+import com.part1.employee.Employee;
 
 /**
  * Author: Sean

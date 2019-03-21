@@ -1,4 +1,4 @@
-package com.part1.employee.employee;
+package com.part1.employee;
 
 /**
  * Author: Sean
