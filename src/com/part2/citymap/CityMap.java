@@ -14,17 +14,16 @@ import java.util.*;
  */
 
 public class CityMap {
-    protected static Map<String, ArrayList<String>> CitiesMap = new LinkedHashMap<>();
+    private static Map<String, ArrayList<String>> CitiesMap = new LinkedHashMap<>();
 
     static {
         readCities();
-        printCities();
     }
 
     /**
      * 将Cities.txt里面存储的所有城市导入到CitiesMap中
      */
-    private static final void readCities() {
+    private static void readCities() {
         // 获取文件
         File file = new File
                 ("E:\\IntelliJProject\\JavaAdvancedProgramDesign\\src\\com\\part2\\citymap/Cities.txt");
@@ -57,9 +56,32 @@ public class CityMap {
     /**
      * 输出map中的所有城市
      */
-    private static final void printCities() {
+    public static void printCities() {
         CitiesMap.forEach((province, cities) -> {
             System.out.println("Province: " + province + ", Cities: " + cities.toString());
         });
+    }
+
+    /**
+     * 根据给定的省的名称获取对应的所有城市名称
+     *
+     * @param sProvince 给定的省名
+     * @return 省名对应的所有城市列表
+     */
+    public static String[] getCitiesByProvince(String sProvince) {
+        String[] res = new String[CitiesMap.get(sProvince).size()];
+        return CitiesMap.get(sProvince).toArray(res);
+    }
+
+    /**
+     * 获取所有的省
+     *
+     * @return 所有的省名列表
+     */
+    public static String[] getProvinces() {
+        Set<String> ssProvinces = CitiesMap.keySet();
+        String[] sProvinces = new String[ssProvinces.size()];
+        ssProvinces.toArray(sProvinces);
+        return sProvinces;
     }
 }

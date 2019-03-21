@@ -1,6 +1,7 @@
 package com.part2.citymap;
 
-import java.util.ArrayList;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Author: Sean
@@ -11,12 +12,11 @@ import java.util.ArrayList;
  * Update History:
  * [Date][Version][Author] What has been done;
  */
-
 public class TestInputFrame {
     public static void main(String[] args) {
-        ArrayList<String> provinces = CityMapDao.getProvinces();
-        ArrayList<String> cities = CityMapDao.getCitiesByProvince("四川");
-        System.out.println(provinces.toString());
-        System.out.println(cities.toString());
+        EventQueue.invokeLater(()->{
+            JFrame frame = new InputFrame("信息录入");
+            frame.setVisible(true);
+        });
     }
 }
