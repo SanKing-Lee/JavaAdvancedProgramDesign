@@ -47,7 +47,6 @@ public class InputFrame extends JFrame {
      * 检测是否选择了籍贯
      */
     private boolean isChoosedNative = false;
-
     /**
      * 构造函数
      *
@@ -75,49 +74,84 @@ public class InputFrame extends JFrame {
         // 设置籍贯框
         provinceJComboBox = new JComboBox<>();
         provinceJComboBox.setModel(new DefaultComboBoxModel(CityMap.getProvinces()));
-        provinceJComboBox.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                String selectedProvince = (String) provinceJComboBox.getSelectedItem();
-                if (cityJComboBox != null) {
-                    cityJComboBox.removeAllItems();
-                }
-                cityJComboBox.setModel(new DefaultComboBoxModel(CityMap.getCitiesByProvince(selectedProvince)));
-                isChoosedNative = true;
+
+        provinceJComboBox.addItemListener(e->{
+            String selectedProvince = (String) provinceJComboBox.getSelectedItem();
+            if (cityJComboBox != null) {
+                cityJComboBox.removeAllItems();
             }
+            cityJComboBox.setModel(new DefaultComboBoxModel(CityMap.getCitiesByProvince(selectedProvince)));
+            isChoosedNative = true;
         });
+//        provinceJComboBox.addItemListener(new ItemListener() {
+//            @Override
+//            public void itemStateChanged(ItemEvent e) {
+//                String selectedProvince = (String) provinceJComboBox.getSelectedItem();
+//                if (cityJComboBox != null) {
+//                    cityJComboBox.removeAllItems();
+//                }
+//                cityJComboBox.setModel(new DefaultComboBoxModel(CityMap.getCitiesByProvince(selectedProvince)));
+//                isChoosedNative = true;
+//            }
+//        });
         cityJComboBox = new JComboBox<>();
 
         // 设置保存和重置按钮
         saveButton = new JButton("保存");
-        saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (nameJTextField.getText().equals("") || nameJTextField.getText().charAt(0) == ' ') {
-                    showMessageDialog(null, "姓名有误，请重新输入！");
-                    return;
-                }
-                if (!isChoosedNative) {
-                    showMessageDialog(null, "请选择籍贯！");
-                    return;
-                }
-                if (addressJTextField.getText().equals("") || addressJTextField.getText().charAt(0) == ' ') {
-                    showMessageDialog(null, "通信地址有误，请重新输入！");
-                    return;
-                }
-                if (!ValidateEmail.isEmail(emailJTextField.getText())) {
-                    showMessageDialog(null, "邮箱地址有误，请重新输入！");
-                    return;
-                }
-                String string = "";
-                string += "\n" + "姓名：" + nameJTextField.getText() + "\n性别：" + genderJComboBox.getSelectedItem();
-                string += "\n" + "籍贯：" + provinceJComboBox.getSelectedItem() +
-                        ((cityJComboBox.getSelectedItem() != null) ? cityJComboBox.getSelectedItem() : "");
-                string += "\n" + "通讯地址：" + addressJTextField.getText();
-                string += "\n" + "邮箱：" + emailJTextField.getText();
-                infoArea.append(string);
+        saveButton.addActionListener(e->{
+            if (nameJTextField.getText().equals("") || nameJTextField.getText().charAt(0) == ' ') {
+                showMessageDialog(null, "姓名有误，请重新输入！");
+                return;
             }
+            if (!isChoosedNative) {
+                showMessageDialog(null, "请选择籍贯！");
+                return;
+            }
+            if (addressJTextField.getText().equals("") || addressJTextField.getText().charAt(0) == ' ') {
+                showMessageDialog(null, "通信地址有误，请重新输入！");
+                return;
+            }
+            if (!ValidateEmail.isEmail(emailJTextField.getText())) {
+                showMessageDialog(null, "邮箱地址有误，请重新输入！");
+                return;
+            }
+            infoArea.setText("基本信息：\n");
+            String string = "";
+            string += "\n" + "姓名：" + nameJTextField.getText() + "\n性别：" + genderJComboBox.getSelectedItem();
+            string += "\n" + "籍贯：" + provinceJComboBox.getSelectedItem() +
+                    ((cityJComboBox.getSelectedItem() != null) ? cityJComboBox.getSelectedItem() : "");
+            string += "\n" + "通讯地址：" + addressJTextField.getText();
+            string += "\n" + "邮箱：" + emailJTextField.getText();
+            infoArea.append(string);
         });
+//        saveButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                if (nameJTextField.getText().equals("") || nameJTextField.getText().charAt(0) == ' ') {
+//                    showMessageDialog(null, "姓名有误，请重新输入！");
+//                    return;
+//                }
+//                if (!isChoosedNative) {
+//                    showMessageDialog(null, "请选择籍贯！");
+//                    return;
+//                }
+//                if (addressJTextField.getText().equals("") || addressJTextField.getText().charAt(0) == ' ') {
+//                    showMessageDialog(null, "通信地址有误，请重新输入！");
+//                    return;
+//                }
+//                if (!ValidateEmail.isEmail(emailJTextField.getText())) {
+//                    showMessageDialog(null, "邮箱地址有误，请重新输入！");
+//                    return;
+//                }
+//                String string = "";
+//                string += "\n" + "姓名：" + nameJTextField.getText() + "\n性别：" + genderJComboBox.getSelectedItem();
+//                string += "\n" + "籍贯：" + provinceJComboBox.getSelectedItem() +
+//                        ((cityJComboBox.getSelectedItem() != null) ? cityJComboBox.getSelectedItem() : "");
+//                string += "\n" + "通讯地址：" + addressJTextField.getText();
+//                string += "\n" + "邮箱：" + emailJTextField.getText();
+//                infoArea.append(string);
+//            }
+//        });
         cancelButton = new JButton("取消");
         cancelButton.addActionListener(new ActionListener() {
             @Override
