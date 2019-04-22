@@ -113,4 +113,8 @@ public class Point {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String toString(){
+        return "x: " + x + ", y: " + y + ", name: " + name;
+    }
 }
