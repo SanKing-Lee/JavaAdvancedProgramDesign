@@ -30,8 +30,8 @@ public class Chopsticks {
             try{
                 wait();
             } catch (InterruptedException e){
-                System.out.println("Getting chops is interrupted");
                 e.printStackTrace();
+                System.out.println("Getting chops is interrupted");
             }
         }
         // 获得了两只筷子
