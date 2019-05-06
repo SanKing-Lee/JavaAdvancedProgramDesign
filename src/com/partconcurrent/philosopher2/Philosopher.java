@@ -13,10 +13,10 @@ import java.util.List;
  * [Date][Version][Author] What has been done;
  */
 
-public class Philosopher extends Thread {
-    private static final int CHOP_NUM = 5;
-    private static final int EATING_TIME = 1000;
-    private static final int THINKING_TIME = 1000;
+public class Philosopher {
+    private static final int CHOP_NUM = 5;          // 筷子的数量
+    private static final int EATING_TIME = 1000;    // 哲学家吃饭的时间
+    private static final int THINKING_TIME = 4000; // 哲学家思考的时间
 
     private List<Boolean> chopsticks = new ArrayList<>(CHOP_NUM);
 
@@ -33,7 +33,7 @@ public class Philosopher extends Thread {
             try{
                 wait();
             } catch(InterruptedException e){
-                System.out.println("Get chopsticks lock was interrupted");
+                System.out.println("Getting chopsticks lock was interrupted");
                 e.printStackTrace();
             }
         }
