@@ -72,6 +72,7 @@ public class ClassTreeFrame extends JFrame {
                 return node;
             }
         }
+
         return null;
     }
 
